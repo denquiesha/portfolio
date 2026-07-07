@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniele Quiesha Diaz — UI/UX Designer</title>
+<meta name="description" content="Daniele Quiesha Diaz — UI/UX Designer & Web Developer. Portfolio of interface design, prototyping, and web development work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --paper-alt:#F2F1EC;
+    --ink:#15171C;
+    --ink-soft:#565B66;
+    --ink-faint:#8A8F98;
+    --line:#E1E2DE;
+    --accent:#3F4FE0;
+    --accent-soft:#ECEEFC;
+    --accent-dim:#C9CCF5;
+    --radius:2px;
+    --maxw:960px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:-0.02em;
+    line-height:1.15;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  ::selection{background:var(--accent-dim); color:var(--ink);}
+
+  a:focus-visible, button:focus-visible, .card:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,250,248,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-name{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:16px;
+  }
+  .nav-links{
+    display:flex; gap:28px; list-style:none;
+  }
+  .nav-links a{
+    font-size:14px; color:var(--ink-soft);
+    transition:color .15s ease;
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0;}
+
+  @media (max-width:720px){
+    .nav-links{
+      position:absolute; top:64px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-links.open{max-height:260px;}
+    .nav-links li{border-top:1px solid var(--line);}
+    .nav-links a{display:block; padding:16px 32px;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- SIGNATURE: corner frame ---------- */
+  .frame{
+    position:relative;
+  }
+  .frame::before, .frame::after,
+  .frame .fc-tl, .frame .fc-br{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border:2px solid var(--accent);
+    opacity:0;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .frame::before{ top:-8px; left:-8px; border-right:none; border-bottom:none; }
+  .frame::after{ bottom:-8px; right:-8px; border-left:none; border-top:none; }
+
+  .frame.always::before, .frame.always::after{opacity:1;}
+
+  .frame-tag{
+    position:absolute;
+    top:-11px; left:-8px;
+    transform:translateY(-100%);
+    font-size:11px;
+    color:var(--accent);
+    white-space:nowrap;
+    opacity:0;
+    transition:opacity .25s ease;
+  }
+  .frame.always .frame-tag{opacity:1;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 96px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    display:inline-block;
+    font-size:12px;
+    color:var(--accent);
+    margin-bottom:28px;
+    padding:5px 10px;
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+  }
+  .hero h1{
+    font-size:clamp(38px, 6vw, 64px);
+    font-weight:600;
+    max-width:11ch;
+  }
+  .hero .role{
+    margin-top:18px;
+    font-size:clamp(18px, 2.4vw, 22px);
+    color:var(--ink-soft);
+    max-width:32ch;
+  }
+  .hero .lede{
+    margin-top:28px;
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:16px;
+  }
+  .hero-actions{
+    margin-top:40px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 20px;
+    font-size:14px; font-weight:500;
+    border-radius:var(--radius);
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-primary{
+    background:var(--ink); color:var(--paper);
+    border:1px solid var(--ink);
+  }
+  .btn-primary:hover{background:var(--accent); border-color:var(--accent);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:24px; margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-label{
+    font-size:12px; color:var(--ink-faint);
+  }
+  .section-head h2{
+    font-size:clamp(26px,3.6vw,34px);
+    font-weight:600;
+  }
+
+  .reveal{
+    opacity:0; transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:56px;
+  }
+  .about-grid p{color:var(--ink-soft); margin-bottom:16px; max-width:60ch;}
+  .about-grid p:last-child{margin-bottom:0;}
+
+  .skill-group{margin-bottom:22px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h3{
+    font-size:11px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--ink-faint); font-weight:500; margin-bottom:10px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:13px; padding:6px 12px;
+    background:var(--paper-alt); border:1px solid var(--line);
+    border-radius:var(--radius); color:var(--ink-soft);
+  }
+
+  @media (max-width:800px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-list{display:flex; flex-direction:column; gap:2px;}
+  .card{
+    display:block;
+    padding:32px 28px;
+    background:var(--paper-alt);
+    border:1px solid transparent;
+    position:relative;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .card:hover{
+    border-color:var(--accent);
+    background:var(--paper);
+  }
+  .card:hover .fc-tl, .card:hover .fc-br,
+  .card:hover::before, .card:hover::after{
+    opacity:1;
+  }
+  .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:16px; margin-bottom:14px; flex-wrap:wrap;
+  }
+  .card-meta{
+    font-size:11px; color:var(--accent);
+  }
+  .card h3{
+    font-size:20px; font-weight:600; margin-bottom:10px;
+  }
+  .card p{color:var(--ink-soft); max-width:62ch; font-size:15px;}
+  .card-tags{margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    font-size:11px; color:var(--ink-faint);
+    border:1px solid var(--line); padding:4px 9px; border-radius:var(--radius);
+  }
+  .card-award{
+    margin-top:14px; font-size:12.5px; color:var(--accent);
+    display:flex; align-items:center; gap:6px;
+  }
+
+  .placeholder-shot{
+    margin-top:20px;
+    height:180px;
+    border:1.5px dashed var(--line);
+    border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-faint); font-size:12px;
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 9px, var(--paper) 9px, var(--paper) 10px);
+  }
+
+  .minor-projects{
+    margin-top:40px;
+    display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  }
+  .minor-card{
+    padding:22px 24px; background:var(--paper-alt);
+    border:1px solid transparent;
+  }
+  .minor-card:hover{border-color:var(--accent-dim);}
+  .minor-card h4{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .minor-card p{font-size:13.5px; color:var(--ink-soft);}
+  @media (max-width:700px){ .minor-projects{grid-template-columns:1fr;} }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{border-left:1px solid var(--line); margin-left:4px;}
+  .tl-item{
+    position:relative; padding:0 0 40px 32px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-5px; top:5px;
+    width:9px; height:9px; background:var(--paper);
+    border:2px solid var(--accent); border-radius:50%;
+  }
+  .tl-date{font-size:12px; color:var(--ink-faint); margin-bottom:6px;}
+  .tl-item h3{font-size:17px; font-weight:600; margin-bottom:2px;}
+  .tl-org{font-size:14px; color:var(--accent); margin-bottom:12px; display:block;}
+  .tl-item ul{padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
+  .tl-item li{margin-bottom:6px;}
+  .tl-item li::marker{color:var(--ink-faint);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:32px;
+  }
+  .contact-inner h2{font-size:clamp(30px,5vw,48px); font-weight:600; max-width:14ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; align-items:flex-end;}
+  .contact-links a{font-size:15px; color:var(--ink-soft); transition:color .15s ease;}
+  .contact-links a:hover{color:var(--accent);}
+  @media (max-width:600px){ .contact-links{align-items:flex-start;} .contact-inner{flex-direction:column; align-items:flex-start;} }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+    font-size:12.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <span class="nav-name">Daniele Quiesha Diaz</span>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="hero-eyebrow mono">Available for UI/UX &amp; web design work</span>
+      <div class="frame always" style="display:inline-block;">
+        <span class="frame-tag mono">frame: hero</span>
+        <h1>Daniele Quiesha&nbsp;Diaz</h1>
+      </div>
+      <p class="role">UI/UX Designer &amp; Web Developer — turning fast-moving product requirements into clean, usable interfaces.</p>
+      <p class="lede">I design responsive interfaces, wireframes, and prototypes in Figma, then help see them through to working websites. Recent work spans digital payment systems, transaction portals, and an award-winning thesis project using deep learning for Filipino sign — I mean, lip-reading recognition.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="mailto:your.email@example.com" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label mono">01 — about</span>
+        <h2>A little about my process</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div>
+          <p>I'm a UI/UX Designer and Web Developer with hands-on experience in responsive design, content management, and digital marketing. My background is in Computer Science, which means I design with a working knowledge of what's feasible to build — and I like sitting close to development so nothing gets lost in translation.</p>
+          <p>Most recently, I worked as a UI/UX Designer Intern at Backend Solutions and Technologies Inc., where I designed interfaces for digital payment systems, transaction portals, and administrative platforms — creating wireframes, prototypes, and user flows, then working directly with developers through sprints and QA to get the details right.</p>
+          <p>Outside of client and internship work, I co-developed Project LiF, a lip-reading learning tool that won Best in Thesis and placed at a national engineering awards competition.</p>
+        </div>
+        <div>
+          <div class="skill-group">
+            <h3>Design</h3>
+            <div class="chips">
+              <span class="chip">Figma</span>
+              <span class="chip">Wireframing</span>
+              <span class="chip">Prototyping</span>
+              <span class="chip">Responsive Design</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Development</h3>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">WordPress</span>
+              <span class="chip">GitHub</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Content &amp; Marketing</h3>
+            <div class="chips">
+              <span class="chip">SEO Content</span>
+              <span class="chip">Social Media Mgmt.</span>
+              <span class="chip">Canva</span>
+              <span class="chip">CapCut</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Certification</h3>
+            <div class="chips">
+              <span class="chip">Google UX Design Certificate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label mono">02 — projects</span>
+        <h2>Selected work</h2>
+      </div>
+
+      <div class="project-list">
+
+        <a href="#" class="card frame reveal">
+          <span class="frame-tag mono">case study</span>
+          <div class="card-top">
+            <div>
+              <span class="card-meta mono">THESIS &nbsp;•&nbsp; AI / ML &nbsp;•&nbsp; CO-DEVELOPER</span>
+              <h3>Project LiF — Lip Reading Learning Tool</h3>
+            </div>
+          </div>
+          <p>An AI-powered web application that helps users learn basic Filipino words through lip-reading, using a 3D Convolutional Neural Network paired with a Bidirectional LSTM for word recognition. I worked on the interface and user flow that makes a fairly technical ML pipeline approachable for everyday learners.</p>
+          <div class="card-award">★ Best in Thesis · 5th Place (Special Citation), NAST Magsaysay Future Engineers/Technologists Awards 2025</div>
+          <div class="card-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">UX Research</span>
+            <span class="tag">Prototyping</span>
+          </div>
+          <div class="placeholder-shot">add project screenshot — 1440×900 recommended</div>
+        </a>
+
+        <a href="#" class="card frame reveal">
+          <span class="frame-tag mono">case study</span>
+          <div class="card-top">
+            <div>
+              <span class="card-meta mono">INTERNSHIP &nbsp;•&nbsp; FINTECH &nbsp;•&nbsp; 2026</span>
+              <h3>Digital Payment &amp; Transaction Platform UI</h3>
+            </div>
+          </div>
+          <p>As UI/UX Designer Intern at Backend Solutions and Technologies Inc., I designed responsive layouts, wireframes, and prototypes for digital payment systems, transaction portals, promotional platforms, and admin dashboards — collaborating daily with developers through sprints, revisions, and QA.</p>
+          <div class="card-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">Design Systems</span>
+            <span class="tag">Accessibility QA</span>
+          </div>
+          <div class="placeholder-shot">add project screenshot — 1440×900 recommended</div>
+        </a>
+
+        <a href="#" class="card frame reveal">
+          <span class="frame-tag mono">case study</span>
+          <div class="card-top">
+            <div>
+              <span class="card-meta mono">SYSTEMS DESIGN &nbsp;•&nbsp; RETAIL</span>
+              <h3>Point of Sale (POS) System</h3>
+            </div>
+          </div>
+          <p>Interface design for an inventory, sales transaction, and receipt management system — built to keep fast checkout flows simple for staff with minimal training.</p>
+          <div class="card-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">User Flows</span>
+          </div>
+          <div class="placeholder-shot">add project screenshot — 1440×900 recommended</div>
+        </a>
+
+        <a href="#" class="card frame reveal">
+          <span class="frame-tag mono">case study</span>
+          <div class="card-top">
+            <div>
+              <span class="card-meta mono">SYSTEMS DESIGN &nbsp;•&nbsp; SMALL BUSINESS</span>
+              <h3>Mandial Enterprise Management System</h3>
+            </div>
+          </div>
+          <p>A management system for a tailoring shop, designed around order tracking and inventory features so non-technical staff can follow a job from intake to delivery.</p>
+          <div class="card-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">Wireframing</span>
+          </div>
+          <div class="placeholder-shot">add project screenshot — 1440×900 recommended</div>
+        </a>
+
+      </div>
+
+      <div class="minor-projects reveal">
+        <div class="minor-card">
+          <h4>Triple Q Construction &amp; Services Website</h4>
+          <p>Business website showcasing services, past projects, and company information.</p>
+        </div>
+        <div class="minor-card">
+          <h4>PRMSU CCIT Promotional Website</h4>
+          <p>Informational site highlighting academic programs and department activities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-label mono">03 — experience</span>
+        <h2>Work &amp; education</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-date mono">JAN 2026 — MAY 2026</div>
+          <h3>UI/UX Designer Intern</h3>
+          <span class="tl-org">Backend Solutions and Technologies Inc.</span>
+          <ul>
+            <li>Designed and improved interfaces for digital payment systems, transaction portals, and administrative platforms.</li>
+            <li>Built responsive layouts, wireframes, prototypes, and user flows in Figma.</li>
+            <li>Ran UI/UX revisions and supported QA testing for responsiveness and accessibility.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date mono">JAN 2025 — FEB 2025</div>
+          <h3>Website Content Editor &amp; Social Media Assistant</h3>
+          <span class="tl-org">BlueWich / Bangkok Digital Marketing Agency</span>
+          <ul>
+            <li>Edited and updated website content and blog articles across multiple company sites, improving readability and SEO alignment.</li>
+            <li>Managed Instagram content, scheduling, and marketing graphics.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date mono">JAN 2025 — JUN 2025</div>
+          <h3>Social Media &amp; Customer Support Assistant</h3>
+          <span class="tl-org">Celmade.co</span>
+          <ul>
+            <li>Managed TikTok content and audience engagement.</li>
+            <li>Handled customer inquiries and product support through comments and DMs.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date mono">2022 — 2026</div>
+          <h3>B.S. in Computer Science</h3>
+          <span class="tl-org">President Ramon Magsaysay State University, Iba, Zambales</span>
+          <ul>
+            <li>Co-developed Project LiF, awarded Best in Thesis and recognized nationally by NAST.</li>
+            <li>Held multiple student-organization leadership roles, including Vice President Internal and Business Manager.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-inner">
+      <h2>Let's work together.</h2>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <a href="#">LinkedIn — add your URL</a>
+        <a href="#">Behance / Dribbble — add your URL</a>
+        <a href="https://github.com/yourusername">GitHub — add your username</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Daniele Quiesha Diaz</span>
+  <span class="mono">built with care</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+  }));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
