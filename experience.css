@@ -1,0 +1,352 @@
+/* =========================
+   EXPERIENCE PAGE
+========================= */
+
+.experience-page {
+  padding-top: 80px;
+}
+
+
+/* =========================
+   EXPERIENCE HEADER
+========================= */
+
+.experience-header {
+  min-height: 390px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-bottom: 50px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.page-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+
+  color: var(--muted);
+}
+
+.experience-title {
+  max-width: 900px;
+
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 500;
+
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.experience-introduction {
+  max-width: 450px;
+
+  align-self: flex-end;
+
+  font-size: 0.72rem;
+  line-height: 1.8;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+   EXPERIENCE LIST
+========================= */
+
+.experience-list {
+  position: relative;
+}
+
+
+/* Vertical timeline */
+
+.experience-list::before {
+  content: "";
+
+  position: absolute;
+
+  top: 80px;
+  bottom: 80px;
+  left: 75px;
+
+  width: 1px;
+
+  background: var(--line);
+}
+
+
+/* =========================
+   EXPERIENCE ITEM
+========================= */
+
+.experience-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    150px
+    minmax(0, 1fr);
+
+  gap: 60px;
+
+  padding: 80px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* =========================
+   TIMELINE MARKER
+========================= */
+
+.experience-marker {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-top: 4px;
+}
+
+.experience-number {
+  font-size: 0.62rem;
+
+  color: var(--muted);
+}
+
+.experience-dot {
+  width: 9px;
+  height: 9px;
+
+  margin-right: 70px;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--text);
+  border-radius: 50%;
+
+  background: var(--bg);
+}
+
+.experience-item:first-child .experience-dot {
+  background: var(--text);
+}
+
+
+/* =========================
+   EXPERIENCE CONTENT
+========================= */
+
+.experience-content {
+  min-width: 0;
+}
+
+.experience-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 55px;
+
+  font-size: 0.6rem;
+
+  color: var(--muted);
+}
+
+.experience-role {
+  max-width: 800px;
+
+  margin-bottom: 18px;
+
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 500;
+
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+.experience-company {
+  margin-bottom: 38px;
+
+  font-size: 0.7rem;
+  line-height: 1.6;
+
+  color: var(--text);
+}
+
+.experience-description {
+  max-width: 650px;
+
+  margin-bottom: 40px;
+
+  font-size: 0.72rem;
+  line-height: 1.9;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+   EXPERIENCE TAGS
+========================= */
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.experience-tags span {
+  padding: 7px 10px;
+
+  font-size: 0.56rem;
+
+  color: var(--muted);
+
+  border: 1px solid var(--line);
+  border-radius: 100px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .experience-header {
+    min-height: 340px;
+  }
+
+  .experience-list::before {
+    left: 60px;
+  }
+
+  .experience-item {
+    grid-template-columns:
+      120px
+      minmax(0, 1fr);
+
+    gap: 40px;
+  }
+
+  .experience-dot {
+    margin-right: 55px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 760px) {
+
+  .experience-page {
+    padding-top: 55px;
+  }
+
+  .experience-header {
+    min-height: 350px;
+
+    padding-bottom: 35px;
+  }
+
+  .experience-title {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  .experience-introduction {
+    align-self: flex-start;
+  }
+
+
+  /* Mobile timeline */
+
+  .experience-list::before {
+    top: 55px;
+    bottom: 55px;
+    left: 4px;
+  }
+
+  .experience-item {
+    display: block;
+
+    padding: 55px 0 55px 30px;
+  }
+
+  .experience-marker {
+    position: absolute;
+
+    top: 57px;
+    left: 0;
+
+    display: block;
+  }
+
+  .experience-number {
+    display: none;
+  }
+
+  .experience-dot {
+    width: 9px;
+    height: 9px;
+
+    margin: 0;
+
+    transform: translateX(-4px);
+  }
+
+  .experience-meta {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 35px;
+  }
+
+  .experience-role {
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
+
+  .experience-description {
+    max-width: 520px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 440px) {
+
+  .experience-header {
+    min-height: 310px;
+  }
+
+  .experience-title {
+    font-size: 2.8rem;
+  }
+
+  .experience-item {
+    padding-left: 25px;
+  }
+
+  .experience-role {
+    font-size: 1.9rem;
+  }
+
+}

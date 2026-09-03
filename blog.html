@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Design notes, development learnings, and personal insights by Daniele Quiesha E. Diaz."
+  >
+
+  <title>Blog | Daniele Quiesha E. Diaz</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- STYLESHEETS -->
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+
+
+<body>
+
+  <div class="portfolio-layout">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+      <nav class="sidebar-nav">
+
+
+        <!-- MAIN -->
+
+        <div class="nav-group">
+
+          <span class="nav-group-title">MAIN</span>
+
+          <a href="index.html" class="sidebar-link">
+            <span class="nav-number">01</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">HOME</span>
+          </a>
+
+          <a href="about.html" class="sidebar-link">
+            <span class="nav-number">02</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">ABOUT</span>
+          </a>
+
+          <a href="projects.html" class="sidebar-link">
+            <span class="nav-number">03</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">PROJECTS</span>
+          </a>
+
+          <a href="experience.html" class="sidebar-link">
+            <span class="nav-number">04</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">EXPERIENCE</span>
+          </a>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="nav-group">
+
+          <span class="nav-group-title">PROFILE</span>
+
+          <a href="credentials.html" class="sidebar-link">
+            <span class="nav-number">05</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">CREDENTIALS</span>
+          </a>
+
+          <a href="affiliations.html" class="sidebar-link">
+            <span class="nav-number">06</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">AFFILIATIONS</span>
+          </a>
+
+        </div>
+
+
+        <!-- BEYOND WORK -->
+
+        <div class="nav-group">
+
+          <span class="nav-group-title">BEYOND WORK</span>
+
+          <a href="community.html" class="sidebar-link">
+            <span class="nav-number">07</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">COMMUNITY</span>
+          </a>
+
+          <a href="causes.html" class="sidebar-link">
+            <span class="nav-number">08</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">CAUSES</span>
+          </a>
+
+          <a
+            href="blog.html"
+            class="sidebar-link active"
+            aria-current="page"
+          >
+            <span class="nav-number">09</span>
+            <span class="nav-line"></span>
+            <span class="nav-label">BLOG</span>
+          </a>
+
+        </div>
+
+
+        <!-- EXPLORE -->
+
+        <div class="nav-group">
+
+          <span class="nav-group-title">EXPLORE</span>
+
+          <a href="shop.html" class="sidebar-link explore-link">
+            <span class="nav-arrow">↗</span>
+            <span class="nav-label">SHOP</span>
+          </a>
+
+          <a href="#" class="sidebar-link explore-link">
+            <span class="nav-arrow">↗</span>
+            <span class="nav-label">PICKS</span>
+          </a>
+
+          <a href="contact.html" class="sidebar-link explore-link">
+            <span class="nav-arrow">↗</span>
+            <span class="nav-label">CONTACT</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+
+      <!-- DOWNLOAD CV -->
+
+      <a
+        href="files/daniele-diaz-cv.pdf"
+        class="sidebar-cv-button"
+        download
+      >
+        DOWNLOAD CV
+        <span aria-hidden="true">↓</span>
+      </a>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+    <div class="main-area">
+
+
+      <!-- TOP BAR -->
+
+      <header class="topbar">
+
+        <a href="index.html" class="brand">
+          DQED.
+        </a>
+
+        <div class="topbar-actions">
+
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            MENU
+          </button>
+
+          <a href="#" class="topbar-cta">
+            LET'S TALK ↗
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- =========================
+           BLOG PAGE
+      ========================== -->
+
+      <main class="page-content blog-page">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="blog-header">
+
+          <span class="page-label">
+            BLOG / 009
+          </span>
+
+          <h1 class="blog-title">
+            NOTES.<br>
+            IDEAS.<br>
+            PROCESS.
+          </h1>
+
+          <p class="blog-introduction">
+            A collection of thoughts, lessons, and observations
+            about UI/UX design, web development, technology,
+            creativity, and personal growth.
+          </p>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURED POST
+        ========================== -->
+
+        <section class="featured-post">
+
+          <div class="featured-post-image">
+
+            <span>
+              FEATURED IMAGE / 001
+            </span>
+
+          </div>
+
+
+          <div class="featured-post-content">
+
+            <div class="post-meta">
+
+              <span>FEATURED</span>
+              <span>DESIGN PROCESS</span>
+              <time datetime="2026-09-03">SEPTEMBER 03, 2026</time>
+
+            </div>
+
+            <h2>
+              LEARNING TO DESIGN WITH INTENTION
+            </h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Integer vitae justo sed lorem tincidunt
+              malesuada. Praesent dignissim sapien vitae neque
+              consequat, at malesuada lectus posuere.
+            </p>
+
+            <a href="#" class="post-link">
+              READ ARTICLE ↗
+            </a>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             BLOG POSTS
+        ========================== -->
+
+        <section class="blog-list">
+
+          <div class="blog-list-heading">
+
+            <span>RECENT ENTRIES</span>
+            <span>03 ARTICLES</span>
+
+          </div>
+
+
+          <div class="blog-grid">
+
+
+            <!-- POST 01 -->
+
+            <article class="blog-card">
+
+              <div class="blog-card-image">
+                <span>POST IMAGE / 001</span>
+              </div>
+
+              <div class="blog-card-content">
+
+                <div class="post-meta">
+                  <span>UI/UX DESIGN</span>
+                  <time datetime="2026-08-20">
+                    AUGUST 20, 2026
+                  </time>
+                </div>
+
+                <h2>
+                  WHAT I LEARNED FROM DESIGNING MY FIRST CASE STUDY
+                </h2>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Integer vitae justo sed lorem tincidunt
+                  malesuada.
+                </p>
+
+                <div class="post-tags">
+                  <span>UI/UX</span>
+                  <span>CASE STUDY</span>
+                  <span>LEARNING</span>
+                </div>
+
+                <a href="#" class="post-link">
+                  READ ARTICLE ↗
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 02 -->
+
+            <article class="blog-card">
+
+              <div class="blog-card-image">
+                <span>POST IMAGE / 002</span>
+              </div>
+
+              <div class="blog-card-content">
+
+                <div class="post-meta">
+                  <span>WEB DEVELOPMENT</span>
+                  <time datetime="2026-08-08">
+                    AUGUST 08, 2026
+                  </time>
+                </div>
+
+                <h2>
+                  BUILDING A PERSONAL PORTFOLIO FROM SCRATCH
+                </h2>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Integer vitae justo sed lorem tincidunt
+                  malesuada.
+                </p>
+
+                <div class="post-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>PORTFOLIO</span>
+                </div>
+
+                <a href="#" class="post-link">
+                  READ ARTICLE ↗
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- POST 03 -->
+
+            <article class="blog-card">
+
+              <div class="blog-card-image">
+                <span>POST IMAGE / 003</span>
+              </div>
+
+              <div class="blog-card-content">
+
+                <div class="post-meta">
+                  <span>PERSONAL GROWTH</span>
+                  <time datetime="2026-07-25">
+                    JULY 25, 2026
+                  </time>
+                </div>
+
+                <h2>
+                  CREATIVITY, LEADERSHIP, AND LEARNING AS I GO
+                </h2>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Integer vitae justo sed lorem tincidunt
+                  malesuada.
+                </p>
+
+                <div class="post-tags">
+                  <span>GROWTH</span>
+                  <span>LEADERSHIP</span>
+                  <span>REFLECTION</span>
+                </div>
+
+                <a href="#" class="post-link">
+                  READ ARTICLE ↗
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             EMPTY STATE / FUTURE POSTS
+        ========================== -->
+
+        <section class="blog-more">
+
+          <span>MORE NOTES SOON.</span>
+
+          <p>
+            New articles and personal reflections will be added
+            as I continue designing, developing, and learning.
+          </p>
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer class="site-footer">
+
+          <p>
+            © <span id="year"></span>
+            DANIELE QUIESHA E. DIAZ
+          </p>
+
+          <p>
+            DESIGNED &amp; DEVELOPED BY DEN
+          </p>
+
+        </footer>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

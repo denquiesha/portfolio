@@ -1,0 +1,291 @@
+/* =========================
+   AFFILIATIONS PAGE
+========================= */
+
+.affiliations-page {
+  padding-top: 80px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.affiliations-header {
+  min-height: 390px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-bottom: 50px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.page-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+
+  color: var(--muted);
+}
+
+.affiliations-title {
+  max-width: 950px;
+
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 500;
+
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.affiliations-introduction {
+  max-width: 450px;
+
+  align-self: flex-end;
+
+  font-size: 0.72rem;
+  line-height: 1.8;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+   AFFILIATION LIST
+========================= */
+
+.affiliation-list {
+  border-top: 0;
+}
+
+
+/* =========================
+   AFFILIATION ITEM
+========================= */
+
+.affiliation-item {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: 70px;
+
+  padding: 75px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* =========================
+   AFFILIATION SUMMARY
+========================= */
+
+.affiliation-summary {
+  display: grid;
+
+  grid-template-columns: 45px minmax(0, 1fr);
+
+  gap: 20px;
+}
+
+.affiliation-number {
+  padding-top: 3px;
+
+  font-size: 0.62rem;
+
+  color: var(--muted);
+}
+
+.affiliation-type {
+  margin-bottom: 22px;
+
+  font-size: 0.6rem;
+  line-height: 1.5;
+
+  color: var(--muted);
+}
+
+.organization-name {
+  max-width: 400px;
+
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  font-weight: 500;
+
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+
+/* =========================
+   AFFILIATION INFORMATION
+========================= */
+
+.affiliation-information {
+  min-width: 0;
+}
+
+.organization-description {
+  max-width: 560px;
+
+  margin-bottom: 45px;
+
+  font-size: 0.72rem;
+  line-height: 1.9;
+
+  color: var(--muted);
+}
+
+
+/* =========================
+   ROLE LIST
+========================= */
+
+.role-list {
+  border-top: 1px solid var(--line);
+}
+
+.role-item {
+  display: grid;
+
+  grid-template-columns:
+    150px
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.role-year {
+  font-size: 0.6rem;
+  line-height: 1.5;
+
+  color: var(--muted);
+}
+
+.role-name {
+  font-size: 0.68rem;
+  line-height: 1.5;
+
+  color: var(--text);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+  .affiliations-header {
+    min-height: 340px;
+  }
+
+  .affiliation-item {
+    grid-template-columns:
+      minmax(220px, 0.8fr)
+      minmax(0, 1.2fr);
+
+    gap: 45px;
+  }
+
+  .role-item {
+    grid-template-columns:
+      125px
+      minmax(0, 1fr);
+
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 760px) {
+
+  .affiliations-page {
+    padding-top: 55px;
+  }
+
+  .affiliations-header {
+    min-height: 350px;
+
+    padding-bottom: 35px;
+  }
+
+  .affiliations-title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .affiliations-introduction {
+    align-self: flex-start;
+  }
+
+  .affiliation-item {
+    display: flex;
+    flex-direction: column;
+
+    gap: 40px;
+
+    padding: 55px 0;
+  }
+
+  .affiliation-summary {
+    grid-template-columns: 35px minmax(0, 1fr);
+
+    gap: 15px;
+  }
+
+  .organization-name {
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
+
+  .organization-description {
+    margin-bottom: 35px;
+  }
+
+  .role-item {
+    grid-template-columns:
+      120px
+      minmax(0, 1fr);
+
+    gap: 15px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 440px) {
+
+  .affiliations-header {
+    min-height: 310px;
+  }
+
+  .affiliations-title {
+    font-size: 2.7rem;
+  }
+
+  .organization-name {
+    font-size: 1.9rem;
+  }
+
+  .role-item {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+}
