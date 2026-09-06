@@ -12,11 +12,13 @@
 
   <meta
     name="description"
-    content="Selected UI/UX design and web development projects by Daniele Quiesha E. Diaz."
+    content="Selected UI/UX, web design, graphic design, video, and photography projects by Daniele Quiesha E. Diaz."
   >
 
   <title>Projects | Daniele Quiesha E. Diaz</title>
 
+
+  <!-- GOOGLE FONT -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -32,6 +34,8 @@
   >
 
 
+  <!-- STYLESHEETS -->
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="projects.css">
 
@@ -43,7 +47,9 @@
   <div class="portfolio-layout">
 
 
-<!--Sidebar-->
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
 
     <aside class="sidebar" id="sidebar">
 
@@ -167,21 +173,30 @@
             EXPLORE
           </span>
 
-          <a href="shop.html" class="sidebar-link explore-link">
+          <a
+            href="shop.html"
+            class="sidebar-link explore-link"
+          >
 
             <span class="nav-arrow">↗</span>
             <span class="nav-label">SHOP</span>
 
           </a>
 
-          <a href="picks.html" class="sidebar-link explore-link">
+          <a
+            href="picks.html"
+            class="sidebar-link explore-link"
+          >
 
             <span class="nav-arrow">↗</span>
             <span class="nav-label">PICKS</span>
 
           </a>
 
-          <a href="contact.html" class="sidebar-link explore-link">
+          <a
+            href="contact.html"
+            class="sidebar-link explore-link"
+          >
 
             <span class="nav-arrow">↗</span>
             <span class="nav-label">CONTACT</span>
@@ -190,7 +205,10 @@
 
         </div>
 
-            </nav>
+      </nav>
+
+
+      <!-- DOWNLOAD CV -->
 
       <a
         href="files/daniele-diaz-cv.pdf"
@@ -204,12 +222,14 @@
     </aside>
 
 
-<!--Main Area-->
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
 
     <div class="main-area">
 
 
-<!--Topbar-->
+      <!-- TOPBAR -->
 
       <header class="topbar">
 
@@ -228,7 +248,10 @@
             MENU
           </button>
 
-          <a href="#" class="topbar-cta">
+          <a
+            href="contact.html"
+            class="topbar-cta"
+          >
             LET'S TALK ↗
           </a>
 
@@ -236,7 +259,10 @@
 
       </header>
 
-<!--Projects Page-->
+
+      <!-- =========================
+           PROJECTS PAGE
+      ========================== -->
 
       <main class="page-content projects-page">
 
@@ -255,20 +281,93 @@
           </h1>
 
           <p class="projects-introduction">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Integer vitae justo sed lorem tincidunt malesuada.
+            A selection of creative projects across UI/UX,
+            web design, graphic design, video, motion,
+            and photography.
           </p>
 
         </section>
 
 
-<!--Projects List-->
+        <!-- =========================
+             PROJECT FILTERS
+        ========================== -->
+
+        <div
+          class="project-filters"
+          aria-label="Filter projects"
+        >
+
+          <button
+            class="project-filter active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            ALL
+          </button>
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="uiux"
+            aria-pressed="false"
+          >
+            UI/UX
+          </button>
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="web"
+            aria-pressed="false"
+          >
+            WEB DESIGN &amp; BUILD
+          </button>
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="graphics"
+            aria-pressed="false"
+          >
+            GRAPHIC DESIGN
+          </button>
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="video"
+            aria-pressed="false"
+          >
+            VIDEO &amp; MOTION
+          </button>
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="photography"
+            aria-pressed="false"
+          >
+            PHOTOGRAPHY
+          </button>
+
+        </div>
+
+
+        <!-- =========================
+             PROJECTS LIST
+        ========================== -->
+
         <section class="project-list">
 
 
           <!-- PROJECT 01: SNAPSORT -->
 
-          <article class="project-item">
+          <article
+            class="project-item"
+            data-category="uiux"
+          >
 
             <div class="project-image">
 
@@ -322,7 +421,10 @@
 
           <!-- PROJECT 02: ZAMBAGAWA -->
 
-          <article class="project-item">
+          <article
+            class="project-item"
+            data-category="uiux"
+          >
 
             <div class="project-image">
 
@@ -376,7 +478,10 @@
 
           <!-- PROJECT 03: JOB APPLICATION TRACKER -->
 
-          <article class="project-item">
+          <article
+            class="project-item"
+            data-category="uiux"
+          >
 
             <div class="project-image">
 
@@ -432,7 +537,9 @@
       </main>
 
 
-<!--Footer-->
+      <!-- =========================
+           FOOTER
+      ========================== -->
 
       <footer class="site-footer">
 
