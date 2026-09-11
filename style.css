@@ -317,7 +317,6 @@ img {
   padding: 90px 0 100px;
 }
 
-
 /* =========================
    PROFILE SECTION
 ========================= */
@@ -326,28 +325,28 @@ img {
   display: grid;
 
   grid-template-columns:
-    240px
+    260px
     minmax(0, 520px);
 
   align-items: center;
 
-  gap: 80px;
-  margin-bottom: 90px;
+  gap: 65px;
+
+  margin-bottom: 55px;
 }
+
 
 /* =========================
    PROFILE PHOTO
 ========================= */
 
 .profile-photo {
-  width: 230px;
+  width: 250px;
 
   aspect-ratio: 1 / 1;
-
   overflow: hidden;
 
   border-radius: 50%;
-
   border: 1px solid var(--line);
 
   background: var(--soft);
@@ -696,7 +695,6 @@ img {
 
 }
 
-
 /* =========================
    MOBILE
 ========================= */
@@ -710,13 +708,19 @@ img {
   .main-area {
     width: 100%;
   }
-.sidebar-cv-button {
-  margin-top: 30px;
 
-  padding: 8px 0 5px;
 
-  font-size: 0.76rem;
-}
+  /* SIDEBAR CV LINK */
+
+  .sidebar-cv-button {
+    margin-top: 30px;
+
+    padding: 8px 0 5px;
+
+    font-size: 0.76rem;
+  }
+
+
   /* TOP BAR */
 
   .topbar {
@@ -819,6 +823,7 @@ img {
   .profile-section {
     display: flex;
     flex-direction: column;
+
     align-items: flex-start;
 
     gap: 38px;
@@ -842,13 +847,17 @@ img {
   /* CONTENT CARD */
 
   .content-card {
-    min-height: 470px;
+    min-height: auto;
 
     padding: 25px;
   }
 
   .content-label {
     margin-bottom: 55px;
+  }
+
+  .intro-content {
+    max-width: 100%;
   }
 
   .intro-heading {
@@ -860,8 +869,11 @@ img {
   }
 
   .intro-link {
-    right: 25px;
-    bottom: 25px;
+    position: static;
+
+    align-self: flex-start;
+
+    margin-top: 35px;
   }
 
 
