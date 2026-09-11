@@ -113,7 +113,7 @@ img {
 .nav-group-title {
   margin-bottom: 4px;
 
-  font-size: 0.80rem;
+  font-size: 0.72rem;
   font-weight: 500;
 
   color: #aaaaaa;
@@ -135,7 +135,7 @@ img {
 }
 
 .nav-arrow {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
 
   color: #aaaaaa;
 
@@ -157,7 +157,7 @@ img {
   align-items: center;
   gap: 10px;
 
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--muted);
 
   transition:
@@ -166,13 +166,13 @@ img {
 }
 
 .nav-label {
-  font-size: 0.80rem;
+  font-size: 0.86rem;
   font-weight: 500;
 }
 
 
 .nav-number {
-  font-size: 0.70rem;
+  font-size: 0.76rem;
 
   color: #aaaaaa;
 }
@@ -277,7 +277,7 @@ img {
 ========================= */
 
 .brand {
-  font-size: 1rem;
+  font-size: 1.1rem;
 
   font-weight: 600;
 
@@ -292,7 +292,7 @@ img {
 .topbar-cta {
   padding-bottom: 3px;
 
-  font-size: 0.72rem;
+  font-size: 0.8rem;
 
   border-bottom: 1px solid var(--text);
 
@@ -382,7 +382,7 @@ img {
 
   padding-bottom: 12px;
 
-  font-size: 2.5rem;
+  font-size: clamp(2.6rem, 4vw, 3.2rem);
 
   font-weight: 500;
 
@@ -416,14 +416,14 @@ img {
 
 
 .info-label {
-  font-size: 0.70rem;
+  font-size: 0.8rem;
 
   color: var(--muted);
 }
 
 
 .info-value {
-  font-size: 0.70rem;
+  font-size: 0.84rem;
 
   color: var(--text);
 }
@@ -476,7 +476,7 @@ img {
 .social-link {
   width: fit-content;
 
-  font-size: 0.72rem;
+  font-size: 0.84rem;
 
   border-bottom: 1px solid transparent;
 
@@ -516,9 +516,9 @@ img {
 .content-label {
   display: inline-block;
 
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 
-  font-size: 0.62rem;
+  font-size: 0.72rem;
 
   color: var(--muted);
 }
@@ -527,26 +527,26 @@ img {
 /* INTRO CONTENT */
 
 .intro-content {
-  max-width: 720px;
+  max-width: 780px;
 }
 
 .intro-heading {
-  max-width: 680px;
+  max-width: 780px;
 
   margin-bottom: 22px;
 
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-size: clamp(2.0rem, 2.5vw, 3.0rem);
   font-weight: 500;
 
-  line-height: 1.08;
+  line-height: 1.02;
   letter-spacing: -0.06em;
 }
 
 .intro-description {
-  max-width: 520px;
+  max-width: 650px;
 
-  font-size: 0.72rem;
-  line-height: 1.8;
+  font-size: 0.9rem;
+  line-height: 1.75;
 
   color: var(--muted);
 }
@@ -567,7 +567,7 @@ img {
 
   padding-bottom: 4px;
 
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 
   border-bottom: 1px solid var(--text);
 }
@@ -599,7 +599,7 @@ img {
   padding: 0;
 
   font-family: inherit;
-  font-size: 0.68rem;
+  font-size: 0.76rem;
 
   color: var(--text);
   background: transparent;
@@ -625,7 +625,7 @@ img {
   margin: 0 auto;
   padding: 28px 0 40px;
 
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   line-height: 1.6;
 
   color: var(--muted);
@@ -647,7 +647,7 @@ img {
   margin-top: 35px;
   padding-bottom: 4px;
 
-  font-size: 0.62rem;
+  font-size: 0.72rem;
 
   color: var(--text);
 
@@ -715,7 +715,7 @@ img {
 
   padding: 8px 0 5px;
 
-  font-size: 0.68rem;
+  font-size: 0.76rem;
 }
   /* TOP BAR */
 
@@ -852,7 +852,7 @@ img {
   }
 
   .intro-heading {
-    font-size: clamp(1.8rem, 9vw, 2.7rem);
+    font-size: clamp(2.15rem, 9vw, 3rem);
   }
 
   .intro-description {
@@ -893,7 +893,7 @@ img {
 
   .topbar-cta,
   .menu-button {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
   }
 
   .profile-photo {
@@ -909,11 +909,11 @@ img {
 
   .info-value,
   .social-link {
-    font-size: 0.66rem;
+    font-size: 0.78rem;
   }
 
   .intro-heading {
-    font-size: 1.8rem;
+    font-size: 2.05rem;
   }
 
 }
