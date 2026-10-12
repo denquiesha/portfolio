@@ -197,3 +197,156 @@ hideCaseStudyButtons.forEach((button) => {
   });
 
 });
+/* =========================
+   CUTE UI SOUNDS
+========================= */
+
+let audioContext;
+
+function getAudioContext() {
+  if (!audioContext) {
+    audioContext = new (
+      window.AudioContext ||
+      window.webkitAudioContext
+    )();
+  }
+
+  return audioContext;
+}
+
+
+/* Soft cute pop */
+
+function playPop() {
+
+  const ctx = getAudioContext();
+
+  if (ctx.state === "suspended") {
+    ctx.resume();
+  }
+
+  const oscillator = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  oscillator.type = "sine";
+
+  oscillator.frequency.setValueAtTime(
+    520,
+    ctx.currentTime
+  );
+
+  oscillator.frequency.exponentialRampToValueAtTime(
+    760,
+    ctx.currentTime + 0.07
+  );
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    ctx.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.045,
+    ctx.currentTime + 0.015
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    ctx.currentTime + 0.11
+  );
+
+  oscillator.connect(gain);
+  gain.connect(ctx.destination);
+
+  oscillator.start();
+
+  oscillator.stop(
+    ctx.currentTime + 0.12
+  );
+}
+
+
+/* Slightly softer sparkle */
+
+function playSparkle() {
+
+  const ctx = getAudioContext();
+
+  if (ctx.state === "suspended") {
+    ctx.resume();
+  }
+
+  const frequencies = [880, 1175];
+
+  frequencies.forEach((frequency, index) => {
+
+    const oscillator = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.value = frequency;
+
+    const startTime =
+      ctx.currentTime + index * 0.045;
+
+    gain.gain.setValueAtTime(
+      0.0001,
+      startTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.025,
+      startTime + 0.01
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      startTime + 0.16
+    );
+
+    oscillator.connect(gain);
+    gain.connect(ctx.destination);
+
+    oscillator.start(startTime);
+
+    oscillator.stop(
+      startTime + 0.17
+    );
+
+  });
+}
+
+
+/* =========================
+   NORMAL CLICK SOUND
+========================= */
+
+document.addEventListener(
+  "click",
+  (event) => {
+
+    const target =
+      event.target.closest(
+        "a, button, .project-filter"
+      );
+
+    if (!target) return;
+
+    /* Case study buttons get sparkle */
+
+    if (
+      target.classList.contains(
+        "view-case-study"
+      )
+    ) {
+      playSparkle();
+      return;
+    }
+
+    /* Everything else gets soft pop */
+
+    playPop();
+
+  }
+);
