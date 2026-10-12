@@ -17,90 +17,183 @@ const sidebar = document.querySelector(".sidebar");
 const sidebarLinks = document.querySelectorAll(".sidebar-link");
 
 if (menuButton && sidebar) {
-
   menuButton.addEventListener("click", () => {
-
     const isOpen = sidebar.classList.toggle("menu-open");
 
     menuButton.setAttribute("aria-expanded", isOpen);
     menuButton.textContent = isOpen ? "CLOSE" : "MENU";
-
   });
 
-
-  // Close menu when a navigation link is selected
-
   sidebarLinks.forEach((link) => {
-
     link.addEventListener("click", () => {
-
       sidebar.classList.remove("menu-open");
 
       menuButton.setAttribute("aria-expanded", "false");
       menuButton.textContent = "MENU";
-
     });
-
   });
-
 }
-// =========================
-// PROJECT FILTERS
-// =========================
 
-const projectFilters =
-  document.querySelectorAll(".project-filter");
+/* =========================
+   PROJECT FILTERS
+========================= */
 
-const projectItems =
-  document.querySelectorAll(".project-item");
+const projectFilters = document.querySelectorAll(".project-filter");
+const projectItems = document.querySelectorAll(".project-item");
 
+// Track SnapSort case study state
+let snapsortExpanded = false;
 
-if (projectFilters.length && projectItems.length) {
+function updateProjectView(selectedCategory) {
 
+  // Update active tab
   projectFilters.forEach((button) => {
+    const isActive = button.dataset.filter === selectedCategory;
 
-    button.addEventListener("click", () => {
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 
-      const selectedCategory = button.dataset.filter;
+  // Show or hide projects
+  projectItems.forEach((project) => {
 
+    const categories = (project.dataset.category || "").split(" ");
 
-      // Update active filter button
+    const shouldShow =
+      selectedCategory === "all" ||
+      categories.includes(selectedCategory);
 
-      projectFilters.forEach((filterButton) => {
+    project.hidden = !shouldShow;
 
-        const isActive = filterButton === button;
+    // =========================
+    // SNAP SORT SPECIAL BEHAVIOR
+    // =========================
 
-        filterButton.classList.toggle(
-          "active",
-          isActive
-        );
+    if (project.classList.contains("snapsort-project")) {
 
-        filterButton.setAttribute(
-          "aria-pressed",
-          isActive
-        );
+      const cover = project.querySelector(".snapsort-cover");
+      const information = project.querySelector(".project-information");
+      const caseStudy = project.querySelector(".snapsort-case-study");
 
-      });
+      const showCaseStudy =
+        selectedCategory === "uiux" && snapsortExpanded;
 
+      if (cover) {
+        cover.hidden = showCaseStudy;
+      }
 
-      // Show or hide projects
+      if (information) {
+        information.hidden = showCaseStudy;
+      }
 
-      projectItems.forEach((project) => {
+      if (caseStudy) {
+        caseStudy.hidden = !showCaseStudy;
+      }
+    }
+  });
+}
 
-        const projectCategories =
-          project.dataset.category
-            .split(" ");
+// =========================
+// TAB CLICK EVENTS
+// =========================
 
-        const shouldShow =
-          selectedCategory === "all" ||
-          projectCategories.includes(selectedCategory);
+projectFilters.forEach((button) => {
 
-        project.hidden = !shouldShow;
+  button.addEventListener("click", () => {
 
-      });
+    const selectedCategory = button.dataset.filter;
 
-    });
+    // Preserve original behavior:
+    // UI/UX tab opens SnapSort case study.
+    snapsortExpanded = selectedCategory === "uiux";
+
+    updateProjectView(selectedCategory);
 
   });
 
-}
+});
+
+// =========================
+// INITIAL STATE
+// =========================
+
+updateProjectView(
+  document.querySelector(".project-filter.active")?.dataset.filter || "all"
+);
+
+// =========================
+// VIEW CASE STUDY BUTTON
+// =========================
+
+const caseStudyButtons =
+  document.querySelectorAll(".view-case-study");
+
+caseStudyButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    snapsortExpanded = true;
+
+    // Find UI/UX filter
+    const uiuxFilter = document.querySelector(
+      '.project-filter[data-filter="uiux"]'
+    );
+
+    if (uiuxFilter) {
+
+      // Switch to UI/UX
+      updateProjectView("uiux");
+
+      // Scroll to case study
+      const caseStudy = document.querySelector(
+        "#snapsort-case-study"
+      );
+
+      if (caseStudy) {
+
+        caseStudy.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+    }
+
+  });
+
+});
+
+// =========================
+// HIDE CASE STUDY BUTTON
+// =========================
+
+const hideCaseStudyButtons =
+  document.querySelectorAll(".hide-case-study");
+
+hideCaseStudyButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    // Collapse case study
+    snapsortExpanded = false;
+
+    // Stay on UI/UX tab
+    updateProjectView("uiux");
+
+    // Scroll back to SnapSort project
+    const project = document.querySelector(
+      ".snapsort-project"
+    );
+
+    if (project) {
+
+      project.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+  });
+
+});
