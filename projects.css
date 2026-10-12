@@ -666,7 +666,8 @@
 .snapsort-screen img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 230px;
+  object-fit: contain;
   background: #efefeb;
   border: 1px solid #e3e3de;
   box-sizing: border-box;
